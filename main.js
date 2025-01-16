@@ -94,7 +94,6 @@ function apertarF11() {
 	}
 }
 
-// execução do código:
 if (document.URL.includes("guitarflash3.com/setlist/")) {
 	removerNavBar()
 	removerRodape()
