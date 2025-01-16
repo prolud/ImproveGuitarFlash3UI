@@ -1,10 +1,18 @@
+// ==UserScript==
+// @name Better Guitar Flash
+// @namespace Better Guitar Flash Scripts
+// @description Melhora a UI do Guitar Flash
+// @grant none
+// ==/UserScript==
 function removerNavBar() {
-    let divTopo = document.getElementById('divTopo');
+	let divTopo = document.getElementById('divTopo');
+	let divContA = document.getElementById('divContA');
 	divTopo?.remove();
+	divContA?.remove();
 }
 
 function removerRodape() {
-    let divRodape = document.getElementById('divRodape');
+	let divRodape = document.getElementById('divRodape');
 	divRodape?.remove();
 }
 
@@ -43,7 +51,7 @@ function repositionarMenuConfiguracoes() {
 	gfLat.style.position = 'absolute'
 	gfLat.style.bottom = '1rem'
 	gfLat.style.right = '3rem'
-    gfLat.style.zIndex = '9999'
+	gfLat.style.zIndex = '9999'
 
 	gfLat.firstElementChild.style.height = 'unset'
 	gfLat.firstElementChild.style.width = 'unset'
@@ -55,13 +63,11 @@ function deixarBackgroundFullScreen() {
 	gameScreen.style.display = 'flex'
 	gameScreen.style.alignItems = 'center'
 	gameScreen.style.justifyContent = 'center'
-    gameScreen.style.width = '100vw'
-    gameScreen.style.height = '100vh'    
+	gameScreen.style.width = '100vw'
+	gameScreen.style.height = '100vh'
 }
 
 function deixarJogoFullScreen() {
-	let gfUIcont = document.getElementById('gfUIcont');
-
 	let gfGame = document.getElementById('gfGame');
 	gfGame.style.position = 'fixed'
 	gfGame.style.top = '0'
@@ -76,7 +82,7 @@ function deixarJogoFullScreen() {
 }
 
 function apertarF11() {
-    var elem = document.documentElement;
+	const elem = document.documentElement;
 	if (elem.requestFullscreen) {
 		elem.requestFullscreen();
 	} else if (elem.msRequestFullscreen) {
@@ -89,12 +95,15 @@ function apertarF11() {
 }
 
 // execução do código:
-removerNavBar()
-removerRodape()
-removerListaPontuacao()
-limparBarraLateral()
-
-melhorarDivPrincipal()
-repositionarMenuConfiguracoes()
-deixarBackgroundFullScreen()
-deixarJogoFullScreen()
+if (document.URL.includes("guitarflash3.com/setlist/")) {
+	removerNavBar()
+	removerRodape()
+	removerListaPontuacao()
+	limparBarraLateral()
+	
+	melhorarDivPrincipal()
+	repositionarMenuConfiguracoes()
+	deixarBackgroundFullScreen()
+	deixarJogoFullScreen()
+	// apertarF11()
+}
